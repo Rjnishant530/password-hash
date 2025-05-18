@@ -19,10 +19,53 @@
   width: 100%;
 }
 
+.app-title-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-logo {
+  width: 28px;
+  height: 28px;
+}
+
 .app-title {
   margin: 0;
   font-size: 20px;
   font-weight: 600;
+}
+
+.app-title-link {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.app-title-link:hover {
+  text-decoration: none;
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-link {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.header-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
 }
 
 .menu-toggle {
@@ -44,5 +87,14 @@
   
   .header {
     height: 50px;
+  }
+  
+  .header-link {
+    font-size: 12px;
+  }
+  
+  .app-logo {
+    width: 24px;
+    height: 24px;
   }
 }

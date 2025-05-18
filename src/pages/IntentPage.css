@@ -1,0 +1,59 @@
+.intent-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 0;
+}
+
+.intent-title {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+.intent-section {
+  margin-bottom: 32px;
+}
+
+.intent-section h3 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #4a6cf7;
+}
+
+.intent-section p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.intent-section ul {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+.intent-section li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.highlight-section {
+  background-color: #f8f9ff;
+  border-left: 4px solid #4a6cf7;
+  padding: 16px 20px;
+  border-radius: 4px;
+}
+
+@media (max-width: 576px) {
+  .intent-page {
+    padding: 16px 0;
+  }
+  
+  .intent-title {
+    font-size: 20px;
+  }
+  
+  .intent-section h3 {
+    font-size: 16px;
+  }
+}

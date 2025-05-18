@@ -1,15 +1,15 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
+import IntentPage from './pages/IntentPage';
 import './App.css';
-
-// Add console log to check if App.tsx is executing
-console.log('App.tsx is executing');
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/intent" element={<IntentPage />} />
       </Routes>
     </Router>
   );

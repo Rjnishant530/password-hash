@@ -1,55 +1,92 @@
-# React + TypeScript + Vite
+# Password Hash Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application for generating secure password hashes with various algorithms and visualization methods.
 
-Currently, two official plugins are available:
+![Password Hash Generator Screenshot](./screenshot.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Generate hashes using multiple algorithms (MD5, SHA-1, SHA-256, etc.)
+- Add primary and secondary salts for enhanced security
+- Interactive visualization methods for secondary salt:
+  - Keypad entry
+  - Android pattern
+  - Bank vault dial
+- Display options for hash output:
+  - All characters
+  - Letters only
+  - Numbers only
+- Customizable grouping of hash characters
+- Save and load configurations
+- Copy hash to clipboard
+- Responsive design for desktop and mobile
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Technologies Used
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- React 18
+- TypeScript
+- Vite
+- CryptoJS
+- CSS3
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/password-hash.git
+   cd password-hash
+   ```
+
+2. Install dependencies:
+   ```
+   npm install
+   ```
+   or
+   ```
+   yarn
+   ```
+
+3. Start the development server:
+   ```
+   npm run dev
+   ```
+   or
+   ```
+   yarn dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+## Building for Production
+
+To create a production build:
+
+```
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The build files will be in the `dist` directory.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Security Considerations
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
-Logo taken from <a href="https://www.flaticon.com/free-icons/decrypt" title="decrypt icons">Decrypt icons created by Nixxdsgn - Flaticon</a>
+- This application runs entirely in the browser - no data is sent to any server
+- Salts are never saved in configurations for security reasons
+- Consider using a strong secondary salt method for enhanced security
+- Remember that MD5 and SHA-1 are no longer considered secure for password storage
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+- Logo <a href="https://www.flaticon.com/free-icons/decrypt" title="decrypt icons">Decrypt icons created by Nixxdsgn - Flaticon</a>
+- CryptoJS for the hash algorithm implementations
+- React team for the amazing framework
+- All contributors to this project

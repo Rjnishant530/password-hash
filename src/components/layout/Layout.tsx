@@ -8,10 +8,11 @@ interface LayoutProps {
   children: React.ReactNode;
   onLoadConfig?: (config: SavedConfig) => void;
   sidebarRefreshTrigger?: number;
+  showSidebar?: boolean;
 }
 
 const Layout = forwardRef<{ toggleSidebar: () => void }, LayoutProps>(
-  ({ children, onLoadConfig, sidebarRefreshTrigger = 0 }, ref) => {
+  ({ children, onLoadConfig, sidebarRefreshTrigger = 0, showSidebar = true }, ref) => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 992);
 
@@ -48,20 +49,22 @@ const Layout = forwardRef<{ toggleSidebar: () => void }, LayoutProps>(
       }
     };
 
-    // Always show sidebar on desktop
-    const showSidebar = isDesktop || sidebarOpen;
+    // Always show sidebar on desktop if showSidebar is true
+    const displaySidebar = showSidebar && (isDesktop || sidebarOpen);
 
     return (
       <div className="layout">
-        <Header toggleSidebar={toggleSidebar} showMenuButton={!isDesktop} />
+        <Header toggleSidebar={toggleSidebar} showMenuButton={showSidebar && !isDesktop} />
         <div className="layout-content">
-          <Sidebar 
-            isOpen={showSidebar} 
-            onClose={closeSidebar} 
-            onLoadConfig={handleLoadConfig}
-            refreshTrigger={sidebarRefreshTrigger}
-            isDesktop={isDesktop}
-          />
+          {showSidebar && (
+            <Sidebar 
+              isOpen={displaySidebar} 
+              onClose={closeSidebar} 
+              onLoadConfig={handleLoadConfig}
+              refreshTrigger={sidebarRefreshTrigger}
+              isDesktop={isDesktop}
+            />
+          )}
           <main className="main-content">
             <div className="container">{children}</div>
           </main>
