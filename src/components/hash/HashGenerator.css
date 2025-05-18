@@ -1,0 +1,118 @@
+.hash-generator {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.hash-result {
+  margin-top: 24px;
+  border-top: 1px solid #e9ecef;
+  padding-top: 16px;
+}
+
+.hash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.hash-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.hash-display {
+  padding: 12px;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  font-family: monospace;
+  word-break: break-all;
+  margin-bottom: 16px;
+  min-height: 24px;
+}
+
+.hash-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.hash-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hash-option span {
+  font-size: 14px;
+}
+
+.secondary-salt {
+  margin-bottom: 20px;
+  padding: 8px 12px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.secondary-salt-value {
+  font-weight: 500;
+  font-family: monospace;
+}
+
+.save-config {
+  margin-top: 24px;
+  border-top: 1px solid #e9ecef;
+  padding-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.save-modal-content {
+  padding: 8px 0;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.save-message {
+  margin-top: 12px;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.save-message.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.save-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+@media (max-width: 576px) {
+  .button-group {
+    flex-direction: column;
+  }
+  
+  .hash-options {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

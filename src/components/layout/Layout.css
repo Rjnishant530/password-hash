@@ -1,0 +1,32 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout-content {
+  display: flex;
+  flex: 1;
+}
+
+.main-content {
+  flex: 1;
+  padding: 16px;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Desktop styles */
+@media (min-width: 992px) {
+  .layout-content {
+    flex-direction: row;
+  }
+  
+  .main-content {
+    padding: 24px;
+  }
+}

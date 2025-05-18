@@ -1,0 +1,17 @@
+.home-page {
+  padding: 16px 0;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .home-page {
+    padding: 24px 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .home-page {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}

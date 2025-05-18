@@ -1,0 +1,61 @@
+.saved-configs-list {
+  margin-top: 24px;
+}
+
+.configs-title {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.configs-list {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+}
+
+.config-item {
+  padding: 12px;
+  border-bottom: 1px solid #e9ecef;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.config-item:last-child {
+  border-bottom: none;
+}
+
+.config-item:hover {
+  background-color: #f8f9fa;
+}
+
+.config-item.selected {
+  background-color: #e9ecef;
+}
+
+.config-name {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.config-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #6c757d;
+}
+
+.configs-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.no-configs {
+  padding: 16px;
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+}
