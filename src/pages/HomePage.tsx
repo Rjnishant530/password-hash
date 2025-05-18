@@ -10,7 +10,6 @@ const HomePage: React.FC = () => {
   const [secondarySalt, setSecondarySalt] = useState('');
   const [visualizationMethod, setVisualizationMethod] = useState<VisualizationMethod>('keypad');
   const [text, setText] = useState('');
-  const [salt, setSalt] = useState('');
   const [algorithm, setAlgorithm] = useState('SHA256');
   const [sidebarRefreshTrigger, setSidebarRefreshTrigger] = useState(0);
   const layoutRef = useRef<{ toggleSidebar: () => void }>(null);
@@ -56,7 +55,7 @@ const HomePage: React.FC = () => {
           onClear={handleClearAll}
           visualizationMethod={visualizationMethod}
           initialText={text}
-          initialSalt={salt}
+          initialSalt={''}
           initialAlgorithm={algorithm}
           onConfigSaved={handleConfigSaved}
         />

@@ -52,3 +52,4 @@ export default tseslint.config({
   },
 })
 ```
+Logo taken from <a href="https://www.flaticon.com/free-icons/decrypt" title="decrypt icons">Decrypt icons created by Nixxdsgn - Flaticon</a>
