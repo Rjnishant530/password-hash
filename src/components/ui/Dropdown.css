@@ -4,16 +4,22 @@
   margin-bottom: 20px;
 }
 
-.dropdown-label {
+.dropdown-container label {
   display: block;
   margin-bottom: 8px;
   font-size: 14px;
   font-weight: 500;
 }
 
+.dropdown-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .dropdown-select {
   width: 100%;
   padding: 10px 12px;
+  padding-right: 30px; /* Space for the arrow */
   font-size: 14px;
   border: 1px solid #ced4da;
   border-radius: 4px;
@@ -32,13 +38,11 @@
 .dropdown-arrow {
   position: absolute;
   right: 12px;
-  top: calc(50% + 4px);
+  top: 50%;
+  transform: translateY(-50%);
   pointer-events: none;
   color: #6c757d;
-}
-
-.dropdown-select-container {
-  position: relative;
+  font-size: 10px;
 }
 
 @media (max-width: 576px) {
