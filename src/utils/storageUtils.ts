@@ -34,3 +34,40 @@ export const deleteSavedConfig = (id: string) => {
   const updatedConfigs = savedConfigs.filter(config => config.id !== id);
   localStorage.setItem('passwordHashConfigs', JSON.stringify(updatedConfigs));
 };
+
+export const exportConfigs = (): string => {
+  const configs = getSavedConfigs();
+  return JSON.stringify(configs);
+};
+
+export const importConfigs = (jsonData: string): boolean => {
+  try {
+    const configs = JSON.parse(jsonData);
+    
+    // Validate the imported data
+    if (!Array.isArray(configs)) {
+      return false;
+    }
+    
+    // Check if each item has the required fields
+    const isValid = configs.every(config => 
+      typeof config.id === 'string' &&
+      typeof config.name === 'string' &&
+      typeof config.text === 'string' &&
+      typeof config.algorithm === 'string' &&
+      typeof config.visualizationMethod === 'string' &&
+      typeof config.timestamp === 'number'
+    );
+    
+    if (!isValid) {
+      return false;
+    }
+    
+    // Save the imported configs
+    localStorage.setItem('passwordHashConfigs', jsonData);
+    return true;
+  } catch (error) {
+    console.error('Error importing configurations:', error);
+    return false;
+  }
+};

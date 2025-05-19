@@ -177,7 +177,7 @@ const HashGenerator: React.FC<HashGeneratorProps> = ({
         />
         
         <Input
-          label="Salt Input (Optional)"
+          label="Salt Input"
           type="password"
           value={salt}
           onChange={handleSaltChange}

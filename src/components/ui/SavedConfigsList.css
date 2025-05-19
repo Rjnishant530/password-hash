@@ -1,9 +1,10 @@
 .saved-configs-list {
-  margin-top: 24px;
+  width: 100%;
 }
 
 .configs-title {
-  margin: 0 0 16px;
+  margin-top: 0;
+  margin-bottom: 16px;
   font-size: 16px;
   font-weight: 500;
 }
@@ -32,7 +33,7 @@
 }
 
 .config-item.selected {
-  background-color: #e9ecef;
+  background-color: #e9f0ff;
 }
 
 .config-name {
@@ -49,13 +50,40 @@
 
 .configs-actions {
   display: flex;
-  justify-content: flex-end;
   gap: 8px;
+  margin-bottom: 16px;
+}
+
+.configs-import-export {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  border-top: 1px solid #e9ecef;
+  padding-top: 16px;
 }
 
 .no-configs {
-  padding: 16px;
+  padding: 24px;
   text-align: center;
   color: #6c757d;
   font-style: italic;
+  margin-bottom: 16px;
+}
+
+.import-button {
+  cursor: pointer;
+}
+
+.import-error {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .configs-actions,
+  .configs-import-export {
+    flex-direction: column;
+  }
 }

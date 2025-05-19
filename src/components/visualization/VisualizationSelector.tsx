@@ -35,7 +35,7 @@ const VisualizationSelector: React.FC<VisualizationSelectorProps> = ({
     <div className="visualization-selector">
       <Card>
         <div className="visualization-header">
-          <h3 style={{marginBottom:'20px'}}>Secondary Salt Method</h3>
+          <h3 style={{marginBottom:'20px'}}>Secondary Salt Method (Optional)</h3>
           
           <Dropdown
             options={visualizationMethods}
