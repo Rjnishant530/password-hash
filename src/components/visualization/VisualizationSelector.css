@@ -1,6 +1,8 @@
 .visualization-selector {
   margin-top: 24px;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  margin-inline: auto;
+  max-width: 800px;
 }
 
 .visualization-header {
