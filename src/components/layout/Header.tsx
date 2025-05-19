@@ -13,7 +13,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar, showMenuButton = true })
       <div className="header-content">
         <Link to="/" className="app-title-link">
           <div className="app-title-container">
-            <img src="/logo.png" alt="Password Hash Logo" className="app-logo" />
+            <img src="logo.png" alt="Password Hash Logo" className="app-logo" />
             <h1 className="app-title">Password Hash</h1>
           </div>
         </Link>

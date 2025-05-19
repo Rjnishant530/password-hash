@@ -18,7 +18,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ minDisplayTime = 2000 }) =>
 
   return (
     <div className={`splash-screen ${hidden ? 'hidden' : ''}`}>
-      <img src="/logo.png" alt="App Logo" className="splash-logo" />
+      <img src="logo.png" alt="App Logo" className="splash-logo" />
       <div className="splash-title">Password Hash</div>
       <div className="splash-spinner"></div>
     </div>
