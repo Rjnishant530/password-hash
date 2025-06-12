@@ -14,8 +14,7 @@ const IntentPage: React.FC = () => {
             <h3>Purpose</h3>
             <p>
               This application was created to provide a secure, client-side tool for generating password hashes
-              using various cryptographic algorithms. It's designed for developers, security professionals, and
-              anyone interested in understanding how password hashing works.
+              using various cryptographic algorithms.
             </p>
           </section>
           
@@ -52,51 +51,6 @@ const IntentPage: React.FC = () => {
               regenerate anytime without storing it anywhere.
             </p>
           </section>
-          
-          <section className="intent-section">
-            <h3>Educational Value</h3>
-            <p>
-              Password hashing is a fundamental security concept. This tool helps users understand:
-            </p>
-            <ul>
-              <li>How different hashing algorithms produce different outputs</li>
-              <li>The importance of salting passwords</li>
-              <li>How visualization methods can create memorable but secure secondary salts</li>
-              <li>The irreversible nature of cryptographic hash functions</li>
-            </ul>
-          </section>
-          
-          <section className="intent-section">
-            <h3>Security Features</h3>
-            <p>
-              This application includes several security-focused features:
-            </p>
-            <ul>
-              <li><strong>Client-side processing:</strong> All hash generation happens in your browser - no data is sent to any server</li>
-              <li><strong>Multiple algorithms:</strong> Support for various hash algorithms including SHA-256, SHA-512, and more</li>
-              <li><strong>Primary and secondary salts:</strong> Add extra security layers to your hashes</li>
-              <li><strong>No salt storage:</strong> Salts are never saved in configurations for security reasons</li>
-            </ul>
-          </section>
-          
-          <section className="intent-section">
-            <h3>Practical Applications</h3>
-            <p>
-              While this tool is primarily educational, it can be used for:
-            </p>
-            <ul>
-              <li>Generating consistent hashes for testing purposes</li>
-              <li>Creating checksums to verify file integrity</li>
-              <li>Understanding how password storage systems work</li>
-              <li>Experimenting with different hashing approaches</li>
-            </ul>
-            <p>
-              <strong>Note:</strong> For production password storage, we recommend using specialized libraries 
-              like bcrypt, Argon2, or PBKDF2 that include features like key stretching and are specifically 
-              designed for password hashing.
-            </p>
-          </section>
-          
           <section className="intent-section">
             <h3>Open Source</h3>
             <p>
