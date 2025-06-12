@@ -32,7 +32,7 @@ export const displayFormats = [
 export const visualizationMethods = [
   { value: 'keypad', label: 'Keypad' },
   { value: 'androidPattern', label: 'Android Pattern' },
-  { value: 'bankVault', label: 'Bank Vault' },
+  // { value: 'bankVault', label: 'Bank Vault' },
 ];
 
 // Generate hash function
@@ -41,23 +41,23 @@ export function generateHash(text: string, algorithm: HashAlgorithm, salt?: stri
   
   switch (algorithm) {
     case 'MD5':
-      return CryptoJS.MD5(textToHash).toString();
+      return CryptoJS.MD5(textToHash).toString(CryptoJS.enc.Base64);
     case 'SHA1':
-      return CryptoJS.SHA1(textToHash).toString();
+      return CryptoJS.SHA1(textToHash).toString(CryptoJS.enc.Base64);
     case 'SHA256':
-      return CryptoJS.SHA256(textToHash).toString();
+      return CryptoJS.SHA256(textToHash).toString(CryptoJS.enc.Base64);
     case 'SHA224':
-      return CryptoJS.SHA224(textToHash).toString();
+      return CryptoJS.SHA224(textToHash).toString(CryptoJS.enc.Base64);
     case 'SHA512':
-      return CryptoJS.SHA512(textToHash).toString();
+      return CryptoJS.SHA512(textToHash).toString(CryptoJS.enc.Base64);
     case 'SHA384':
-      return CryptoJS.SHA384(textToHash).toString();
+      return CryptoJS.SHA384(textToHash).toString(CryptoJS.enc.Base64);
     case 'SHA3':
-      return CryptoJS.SHA3(textToHash).toString();
+      return CryptoJS.SHA3(textToHash).toString(CryptoJS.enc.Base64);
     case 'RIPEMD160':
-      return CryptoJS.RIPEMD160(textToHash).toString();
+      return CryptoJS.RIPEMD160(textToHash).toString(CryptoJS.enc.Base64);
     default:
-      return CryptoJS.SHA256(textToHash).toString();
+      return CryptoJS.SHA256(textToHash).toString(CryptoJS.enc.Base64);
   }
 }
 
