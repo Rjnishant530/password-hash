@@ -1,0 +1,63 @@
+.import-export-modal {
+  text-align: center;
+}
+
+.import-export-modal p {
+  margin-bottom: 30px;
+  color: #666;
+  font-size: 16px;
+}
+
+.option-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.option-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 120px;
+}
+
+.option-btn:hover {
+  border-color: #ccc;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.option-btn:active {
+  transform: translateY(0);
+}
+
+.option-icon {
+  font-size: 24px;
+  display: block;
+}
+
+.option-label {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .option-buttons {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .option-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}

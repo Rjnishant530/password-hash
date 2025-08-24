@@ -1,13 +1,12 @@
 import type { HashAlgorithm, VisualizationMethod } from './hashUtils';
+import * as pako from 'pako';
 
 export interface SavedConfig {
   id: string;
   name: string;
   text: string;
-  salt: string;
   algorithm: HashAlgorithm;
   visualizationMethod: VisualizationMethod;
-  secondarySalt: string;
   timestamp: number;
 }
 
@@ -40,6 +39,29 @@ export const exportConfigs = (): string => {
   return JSON.stringify(configs);
 };
 
+export const exportConfigsCompressed = (): string => {
+  const configs = getSavedConfigs();
+  const jsonString = JSON.stringify(configs);
+  const compressed = pako.deflate(jsonString);
+  const binaryString = Array.from(compressed, byte => String.fromCharCode(byte)).join('');
+  return btoa(binaryString);
+};
+
+export const importConfigsCompressed = (compressedData: string): boolean => {
+  try {
+    const binaryString = atob(compressedData);
+    const compressed = new Uint8Array(binaryString.length);
+    for (let i = 0; i < binaryString.length; i++) {
+      compressed[i] = binaryString.charCodeAt(i);
+    }
+    const decompressed = pako.inflate(compressed, { to: 'string' });
+    return importConfigs(decompressed);
+  } catch (error) {
+    console.error('Error importing compressed configurations:', error);
+    return false;
+  }
+};
+
 export const importConfigs = (jsonData: string): boolean => {
   try {
     const configs = JSON.parse(jsonData);
@@ -63,8 +85,20 @@ export const importConfigs = (jsonData: string): boolean => {
       return false;
     }
     
+    const existingConfigs = getSavedConfigs();
+
+    const finalConfigs = [...existingConfigs];
+    configs.forEach((newConfig: SavedConfig) => {
+      const exists = existingConfigs.find(config => config.id === newConfig.id);
+      if (!exists) {
+        finalConfigs.push(newConfig);
+      }else{
+        // If it exists,Here we skip.
+      }
+    });
+
     // Save the imported configs
-    localStorage.setItem('passwordHashConfigs', jsonData);
+    localStorage.setItem('passwordHashConfigs', JSON.stringify(finalConfigs));
     return true;
   } catch (error) {
     console.error('Error importing configurations:', error);

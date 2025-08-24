@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './SavedConfigsList.css';
 import Card from './Card';
 import Button from './Button';
-import { getSavedConfigs, deleteSavedConfig, exportConfigs, importConfigs } from '../../utils/storageUtils';
+import { getSavedConfigs, deleteSavedConfig } from '../../utils/storageUtils';
 import type { SavedConfig } from '../../utils/storageUtils';
 
 interface SavedConfigsListProps {
   onLoadConfig: (config: SavedConfig) => void;
+  onImportClick?: () => void;
+  onExportClick?: () => void;
 }
 
-const SavedConfigsList: React.FC<SavedConfigsListProps> = ({ onLoadConfig }) => {
+const SavedConfigsList: React.FC<SavedConfigsListProps> = ({ onLoadConfig, onImportClick, onExportClick }) => {
   const [configs, setConfigs] = useState<SavedConfig[]>([]);
   const [selectedConfigId, setSelectedConfigId] = useState<string | null>(null);
-  const [importError, setImportError] = useState<string | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     loadConfigs();
@@ -45,50 +45,22 @@ const SavedConfigsList: React.FC<SavedConfigsListProps> = ({ onLoadConfig }) => 
     setSelectedConfigId(null);
   };
 
-  const handleExportConfigs = () => {
-    const configsJson = exportConfigs();
-    const blob = new Blob([configsJson], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'password-hash-configs.json';
-    document.body.appendChild(a);
-    a.click();
-    
-    // Clean up
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  };
-
-  const handleImportClick = () => {
-    if (fileInputRef.current) {
-      fileInputRef.current.click();
+  const handleExportClick = () => {
+    if (onExportClick) {
+      onExportClick();
     }
   };
 
-  const handleImportConfigs = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setImportError(null);
-    const file = e.target.files?.[0];
-    if (!file) return;
-    
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const content = event.target?.result as string;
-      const success = importConfigs(content);
-      
-      if (success) {
-        loadConfigs();
-      } else {
-        setImportError('Invalid configuration file format');
-      }
-    };
-    
-    reader.readAsText(file);
-    
-    // Reset the input so the same file can be selected again
-    e.target.value = '';
+  const handleImportClick = () => {
+    if (onImportClick) {
+      onImportClick();
+    }
   };
+
+  // Refresh configs when refreshTrigger changes
+  useEffect(() => {
+    loadConfigs();
+  }, []);
 
   const formatDate = (timestamp: number) => {
     return new Date(timestamp).toLocaleString();
@@ -99,17 +71,9 @@ const SavedConfigsList: React.FC<SavedConfigsListProps> = ({ onLoadConfig }) => 
       <Card className="saved-configs-list">
         <div className="no-configs">No saved configurations</div>
         <div className="configs-actions">
-          <input
-            type="file"
-            ref={fileInputRef}
-            accept=".json"
-            onChange={handleImportConfigs}
-            style={{ display: 'none' }}
-          />
           <Button variant="secondary" onClick={handleImportClick}>
             Import Configs
           </Button>
-          {importError && <div className="import-error">{importError}</div>}
         </div>
       </Card>
     );
@@ -149,21 +113,13 @@ const SavedConfigsList: React.FC<SavedConfigsListProps> = ({ onLoadConfig }) => 
         </Button>
       </div>
       <div className="configs-import-export">
-        <Button onClick={handleExportConfigs} variant="outline">
+        <Button onClick={handleExportClick} variant="outline">
           Export All
         </Button>
-        <input
-          type="file"
-          ref={fileInputRef}
-          accept=".json"
-          onChange={handleImportConfigs}
-          style={{ display: 'none' }}
-        />
         <Button variant="outline" onClick={handleImportClick}>
           Import
         </Button>
       </div>
-      {importError && <div className="import-error">{importError}</div>}
     </Card>
   );
 };

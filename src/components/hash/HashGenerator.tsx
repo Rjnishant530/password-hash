@@ -139,10 +139,8 @@ const HashGenerator: React.FC<HashGeneratorProps> = ({ secondarySalt = "", onCle
       saveConfig({
         name: configName,
         text,
-        salt: "", // Don't save primary salt
         algorithm,
         visualizationMethod,
-        secondarySalt: "", // Don't save secondary salt
       });
       setSaveMessage("Configuration saved successfully!");
 

@@ -9,6 +9,8 @@ interface SidebarProps {
   onLoadConfig: (config: SavedConfig) => void;
   refreshTrigger?: number;
   isDesktop?: boolean;
+  onImportClick?: () => void;
+  onExportClick?: () => void;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ 
@@ -16,7 +18,9 @@ const Sidebar: React.FC<SidebarProps> = ({
   onClose, 
   onLoadConfig,
   refreshTrigger = 0,
-  isDesktop = false
+  isDesktop = false,
+  onImportClick,
+  onExportClick
 }) => {
   return (
     <>
@@ -38,7 +42,9 @@ const Sidebar: React.FC<SidebarProps> = ({
               if (!isDesktop) {
                 onClose();
               }
-            }} 
+            }}
+            onImportClick={onImportClick}
+            onExportClick={onExportClick}
           />
         </div>
       </aside>
