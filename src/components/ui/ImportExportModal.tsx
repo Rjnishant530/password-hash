@@ -94,8 +94,7 @@ const ImportExportModal: React.FC<ImportExportModalProps> = ({
         title={mode === 'export' ? 'Export Configurations' : 'Import Configurations'}
       >
         <div className="import-export-modal">
-          <p>Choose how you want to {mode} your configurations:</p>
-          
+         
           <div className="option-buttons">
             <button className="option-btn" onClick={handleQROption}>
               <span className="option-icon">📱</span>

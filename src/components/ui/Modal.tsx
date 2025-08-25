@@ -43,13 +43,7 @@ const Modal: React.FC<ModalProps> = ({
         </div>
         <div className="modal-body">{children}</div>
         {footer && <div className="modal-footer">{footer}</div>}
-        {!footer && (
-          <div className="modal-footer">
-            <Button onClick={onClose} variant="secondary">
-              Close
-            </Button>
-          </div>
-        )}
+        
       </div>
     </div>
   );
