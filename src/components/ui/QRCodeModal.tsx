@@ -45,9 +45,7 @@ const QRCodeModal: React.FC<QRCodeModalProps> = ({ isOpen, onClose, mode, onImpo
           handleImport(result.data);
         },
         {
-          onDecodeError: (error) => {
-            // console.log(error)
-          },
+         
           highlightScanRegion: true,
           highlightCodeOutline: true,
         }
